@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { UploadIcon } from "@/helper/svg";
 
 const Modal = ({ openModal, setOpenModal }) => {
   const wrapperRef = useRef();
@@ -91,7 +90,7 @@ const Modal = ({ openModal, setOpenModal }) => {
                       className="h-[150px] w-full text-sm flex justify-center items-center flex-col text-gray-400 cursor-pointer"
                     >
                       <div className="p-2 mb-3 bg-blue-100 border border-blue-100 rounded-full">
-                        <UploadIcon extraClasses="stroke-[#0048AD]" />
+                        {/* <UploadIcon extraClasses="stroke-[#0048AD]" /> */}
                       </div>
                       <p>
                         <span className="font-bold text-blue-600">

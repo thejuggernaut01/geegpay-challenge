@@ -1,4 +1,8 @@
-import { BarIcon, NotificationIcon, SearchIcon } from "@/helper/svg";
+import {
+  NotificationIcon,
+  SearchIcon,
+  ArrowDownIcon,
+} from "@/components/icons";
 import Image from "next/image";
 import React from "react";
 
@@ -21,9 +25,7 @@ const TopNavigation = () => {
           </div>
 
           <div className="flex items-center gap-2">
-            <div className="border border-[#F9FAFB] rounded-full bg-[#F9FAFB] p-1">
-              <NotificationIcon extraClasses="cursor-pointer" />
-            </div>
+            <NotificationIcon extraClasses="cursor-pointer" />
 
             <button
               type="button"
@@ -41,6 +43,7 @@ const TopNavigation = () => {
                 <p>Justin Bergson</p>
                 <p>Justin@gmail.com</p>
               </div>
+              <ArrowDownIcon />
             </button>
           </div>
         </aside>
