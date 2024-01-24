@@ -4,8 +4,8 @@ import TopNavigation from "@/components/TopNavigation";
 
 export default function Home() {
   return (
-    <main className="h-screen bg-background">
-      <section className="flex">
+    <main className="bg-background">
+      <section className="flex h-screen">
         <aside className="w-[6%] border-r-2 border-gray-300">
           <SideBar />
         </aside>
