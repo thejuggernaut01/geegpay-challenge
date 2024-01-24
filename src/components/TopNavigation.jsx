@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 const currentDate = new Date();
@@ -10,6 +12,33 @@ const formattedDate = new Intl.DateTimeFormat("en-US", options).format(
 );
 
 const TopNavigation = () => {
+  const [width, setWidth] = useState(0);
+  const [toggleSearch, setToggleSearch] = useState(false);
+
+  const handleClose = (e) => {
+    if (e.target.id === "wrapper") {
+      setToggleSearch(false);
+    }
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      const newWidth = window.innerWidth;
+      setWidth(newWidth);
+    };
+
+    // Attach the event listener
+    window.addEventListener("resize", handleResize);
+
+    // Call it initially to set the initial width
+    handleResize();
+
+    // Detach the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [width]);
+
   return (
     <header className="flex items-center h-16 border-b-2 border-gray-300">
       <nav className="w-[95%] mx-auto flex items-center justify-between gap-x-5">
@@ -19,24 +48,46 @@ const TopNavigation = () => {
 
         <aside className="flex items-center justify-end flex-1 gap-x-3 lg:gap-x-8">
           <div className="flex items-center justify-end flex-1 gap-x-3 lg:gap-x-7">
-            <div className="relative flex-1">
-              <input
-                type="text"
-                name="search"
-                id="search"
-                placeholder="Search..."
-                className="w-full pl-9 text-sm text-gray-400 bg-white rounded-full h-10 placeholder:text-sm outline-none border-2 border-[#DADDDD]"
-              />
+            <button
+              className={`cursor-pointer ${
+                toggleSearch
+                  ? "fixed inset-0 z-10 flex flex-1 bg-opacity-25 backdrop-brightness-50"
+                  : "relative md:flex-1"
+              }`}
+              id="wrapper"
+              onClick={(e) => handleClose(e)}
+            >
+              <div
+                className={`${
+                  toggleSearch ? "w-[80%] mx-auto relative mt-3" : ""
+                }`}
+                onClick={() => {
+                  if (width <= 768) {
+                    setToggleSearch(true);
+                  } else {
+                    setToggleSearch(false);
+                  }
+                }}
+              >
+                <input
+                  type="text"
+                  name="search"
+                  id="search"
+                  placeholder="Search..."
+                  className={`${
+                    toggleSearch ? "w-full" : "w-5"
+                  } md:w-full pl-9 text-sm text-gray-400 bg-white rounded-full h-10 placeholder:text-sm outline-none border-2 border-[#DADDDD] cursor-pointer`}
+                />
 
-              <Image
-                src="/icons/search.svg"
-                alt="Search"
-                width={18}
-                height={18}
-                className="absolute w-4 h-4 top-[0.75rem] left-3"
-              />
-            </div>
-
+                <Image
+                  src="/icons/search.svg"
+                  alt="Search"
+                  width={18}
+                  height={18}
+                  className="absolute w-4 h-4 top-[0.75rem] left-3"
+                />
+              </div>
+            </button>
             <button className="flex items-center gap-1">
               <Image
                 src="/icons/calendar.svg"
@@ -52,7 +103,7 @@ const TopNavigation = () => {
             </button>
           </div>
 
-          <div className="flex items-center justify-end gap-x-5">
+          <div className="flex items-center justify-end xxs:gap-x-2 sm:gap-x-5">
             <button className="p-2 border border-gray-500 rounded-full">
               <Image
                 src="/icons/notification.svg"
