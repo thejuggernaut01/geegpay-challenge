@@ -4,7 +4,7 @@ import React from "react";
 
 const TopNavigation = () => {
   return (
-    <header className="flex items-center bg-white h-14">
+    <header className="flex items-center h-16 bg-white">
       <nav className="w-full lg:w-[75%] px-5 sm:px-10 flex items-center justify-between gap-5 ">
         <h1 className="text-lg font-bold">Dashboard</h1>
 
@@ -25,7 +25,10 @@ const TopNavigation = () => {
               <NotificationIcon extraClasses="cursor-pointer" />
             </div>
 
-            <button type="button" className="flex items-center">
+            <button
+              type="button"
+              className="flex items-center gap-2 px-3 py-1 border rounded-full"
+            >
               <div className="relative w-8 h-8 cursor-pointer">
                 <Image
                   src="/developer.jpg"
@@ -34,9 +37,9 @@ const TopNavigation = () => {
                   className="absolute object-cover rounded-full"
                 />
               </div>
-              <div>
+              <div className="text-sm">
                 <p>Justin Bergson</p>
-                <p>Justing@gmail.com</p>
+                <p>Justin@gmail.com</p>
               </div>
             </button>
           </div>
