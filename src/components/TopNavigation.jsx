@@ -1,6 +1,6 @@
-import { BarIcon, NotificationIcon, SearchIcon } from "@/helper/svg";
 import Image from "next/image";
 import React from "react";
+import { NotificationIcon, SearchIcon } from "./icons";
 
 const TopNavigation = () => {
   return (
