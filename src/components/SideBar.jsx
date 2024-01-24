@@ -18,7 +18,7 @@ import { ThemeSwitcher } from "./ThemeSwitcher";
 const SideBar = () => {
   return (
     <>
-      <aside className="w-[90%] mx-auto flex justify-center py-3  h-full">
+      <aside className="w-[90%] mx-auto flex justify-center py-3 h-full">
         <div className="space-y-7 justify-center">
           <div>
             <div className="space-y-5 mb-20">

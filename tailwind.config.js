@@ -22,7 +22,7 @@ module.exports = {
         warning: "#F4C700",
 
         // Neutral
-        background: "#EBECF2",
+        background: "#F7F8FA",
       },
       screens: {
         xxs: "320px",

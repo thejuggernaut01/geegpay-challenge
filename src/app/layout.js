@@ -7,14 +7,15 @@ const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 export const metadata = {
   title: "Geegpay Fitness Dashboard Challenge",
   description:
-    "A hackerthon challenge hosted by Geegpay | built by Ayoolasola Olubunmi",
+    "A hackerthon challenge hosted by Geegpay | built by Ayoola Adewale",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={jakarta.className}>
-        <Providers>{children}</Providers>
+        {/* <Providers></Providers> */}
+        {children}
       </body>
     </html>
   );
