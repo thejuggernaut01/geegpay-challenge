@@ -1,10 +1,6 @@
-import {
-  NotificationIcon,
-  SearchIcon,
-  ArrowDownIcon,
-} from "@/components/icons";
 import Image from "next/image";
 import React from "react";
+import { NotificationIcon, SearchIcon, ArrowDownIcon } from "./icons";
 
 const TopNavigation = () => {
   return (

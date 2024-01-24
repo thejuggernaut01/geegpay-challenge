@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
+// import { UploadIcon } from "@/helper/svg";
 
 const Modal = ({ openModal, setOpenModal }) => {
   const wrapperRef = useRef();
