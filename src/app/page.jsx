@@ -4,19 +4,18 @@ import TopNavigation from "@/components/TopNavigation";
 
 export default function Home() {
   return (
-    <div>
-      <header className="">
-        <TopNavigation />
-      </header>
-      <main className="flex h-[calc(100vh-56px)]">
-        <div className="w-[25%] xl:w-[18%] hidden lg:block">
+    <main className="h-screen bg-background">
+      <section className="flex">
+        <aside className="w-[6%] border-r-2 border-gray-300">
           <SideBar />
-        </div>
+        </aside>
 
-        <div className="flex-1 bg-[#F9FAFB]">
+        <article className="flex-1">
+          <TopNavigation />
+
           <MainBar />
-        </div>
-      </main>
-    </div>
+        </article>
+      </section>
+    </main>
   );
 }

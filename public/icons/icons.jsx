@@ -82,6 +82,7 @@ export const CalenderIcon = () => (
     />
   </svg>
 );
+
 export const LogoIcon = () => (
   <svg
     width="40"
@@ -205,6 +206,7 @@ export const DashboardTrendUpIcon = () => (
     />
   </svg>
 );
+
 export const DashboardBoxIcon = () => (
   <svg
     width="24"
