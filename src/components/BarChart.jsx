@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import {
   ResponsiveContainer,
   XAxis,
@@ -10,67 +11,115 @@ import {
   BarChart,
   Bar,
 } from "recharts";
+
+const CustomBar = (props) => {
+  const { x, y, width, height } = props;
+
+  const radius = 10;
+  const [isHovered, setHovered] = useState(false);
+  const gradientId = `gradient-${Math.random().toString(36).substr(2, 5)}`;
+
+  return (
+    <g
+      onMouseOver={() => setHovered(true)}
+      onMouseOut={() => setHovered(false)}
+    >
+      {/* Define linear gradient */}
+      <defs>
+        <linearGradient id={gradientId} x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop
+            offset="0%"
+            style={{
+              stopColor: isHovered ? "#66C87B" : "#66C87B",
+              stopOpacity: 0.3,
+            }}
+          />
+          <stop
+            offset="100%"
+            style={{ stopColor: "#66C87B", stopOpacity: 0.3 }}
+          />
+        </linearGradient>
+      </defs>
+
+      {/* Draw the curved top */}
+      <path
+        d={`M${x},${y + radius}A${radius},${radius},0,0,1,${x + width},${
+          y + radius
+        }`}
+        fill={`url(#${gradientId})`}
+      />
+
+      {/* Draw the straight bottom */}
+      <rect
+        x={x}
+        y={y + radius}
+        width={width}
+        height={height - radius}
+        fill={`url(#${gradientId})`}
+      />
+
+      {/* Transparent rectangle for hover effect */}
+      <rect
+        x={x}
+        y={y}
+        width={width}
+        height={radius}
+        fill="transparent"
+        // onMouseOver={() => setHovered(true)}
+        // onMouseOut={() => setHovered(false)}
+      />
+    </g>
+  );
+};
 export const Barchart = () => {
   const data = [
     {
       name: "Jan",
-      revenue: 2300,
-      profit: 3625,
+      income: 2300,
     },
     {
       name: "Feb",
-      revenue: 7383,
-      profit: 2535,
+      income: 7383,
     },
     {
       name: "Mar",
-      revenue: 6489,
-      profit: 5943,
+      income: 6489,
     },
     {
       name: "Apr",
-      revenue: 1639,
-      profit: 4363,
+      income: 1639,
     },
     {
       name: "May",
-      revenue: 3702,
-      profit: 1264,
+      income: 3702,
     },
     {
       name: "Jun",
-      revenue: 4738,
-      profit: 3394,
+      income: 4738,
     },
     {
       name: "Jul",
-      revenue: 4432,
-      profit: 4922,
+      income: 4432,
     },
     {
       name: "Aug",
-      revenue: 4443,
-      profit: 9524,
+      income: 4443,
     },
     {
       name: "Sep",
-      revenue: 9479,
-      profit: 6262,
+      income: 9479,
     },
     {
       name: "Oct",
-      revenue: 4883,
-      profit: 7423,
+      income: 4883,
     },
     {
       name: "Nov",
-      revenue: 2304,
-      profit: 1133,
+      income: 2304,
     },
     {
       name: "Dec",
-      revenue: 4060,
-      profit: 4020,
+      income: 4060,
     },
   ];
   return (
@@ -83,14 +132,16 @@ export const Barchart = () => {
       >
         <YAxis />
         <XAxis dataKey="name" />
-        <CartesianGrid strokeDasharray={"3 3"} />
+        <CartesianGrid strokeDasharray={"5 5"} vertical={false} />
         <Legend />
         <Tooltip />
         <Bar
           type="monotone"
           stroke="#8884d8"
-          fill="#8384d8"
-          dataKey={"revenue"}
+          fill="#66C87B"
+          dataKey={"income"}
+          shape={<CustomBar />}
+          barSize={30}
         />
       </BarChart>
     </ResponsiveContainer>

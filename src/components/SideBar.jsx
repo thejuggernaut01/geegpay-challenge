@@ -73,7 +73,9 @@ const SideBar = ({ toggleSidebar }) => {
           >
             {icons.map((item, index) => (
               <div className="flex justify-center" key={index}>
-                <Link href={item.path}>{item.icon}</Link>
+                <Link href={item.path} onClick={toggleSidebar}>
+                  {item.icon}
+                </Link>
               </div>
             ))}
             <ThemeSwitcher />

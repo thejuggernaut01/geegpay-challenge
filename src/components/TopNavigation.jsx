@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import { AnimatePresence, motion } from "framer-motion";
 
 const currentDate = new Date();
 
@@ -20,6 +21,15 @@ const TopNavigation = () => {
       setToggleSearch(false);
     }
   };
+
+  const transition = {
+    duration: 0.2,
+    type: "spring",
+    damping: 10,
+  };
+
+  const initial = toggleSearch ? { y: -100 } : null;
+  const animate = toggleSearch ? { y: "0%" } : null;
 
   useEffect(() => {
     const handleResize = () => {
@@ -48,46 +58,97 @@ const TopNavigation = () => {
 
         <aside className="flex items-center justify-end flex-1 gap-x-3 lg:gap-x-8">
           <div className="flex items-center justify-end flex-1 gap-x-3 lg:gap-x-7">
-            <button
-              className={`cursor-pointer ${
-                toggleSearch
-                  ? "fixed inset-0 z-10 flex flex-1 bg-opacity-25 backdrop-brightness-50"
-                  : "relative md:flex-1"
-              }`}
-              id="wrapper"
-              onClick={(e) => handleClose(e)}
-            >
-              <div
-                className={`${
-                  toggleSearch ? "w-[80%] mx-auto relative mt-3" : ""
+            <AnimatePresence>
+              {toggleSearch && (
+                <motion.button
+                  className={`cursor-pointer ${
+                    toggleSearch
+                      ? "fixed inset-0 z-10 flex flex-1 bg-opacity-25 backdrop-brightness-50"
+                      : "relative md:flex-1"
+                  }`}
+                  id="wrapper"
+                  onClick={(e) => handleClose(e)}
+                >
+                  <motion.div
+                    initial={initial}
+                    animate={animate}
+                    exit={{ y: -100 }}
+                    transition={transition}
+                    className={`${
+                      toggleSearch ? "w-[80%] mx-auto relative mt-3" : ""
+                    }`}
+                    onClick={() => {
+                      if (width <= 768) {
+                        setToggleSearch(true);
+                      } else {
+                        setToggleSearch(false);
+                      }
+                    }}
+                  >
+                    <input
+                      type="text"
+                      name="search"
+                      id="search"
+                      placeholder="Search..."
+                      className={`${
+                        toggleSearch ? "w-full" : "w-5"
+                      } md:w-full pl-9 text-sm text-gray-400 rounded-full h-10 placeholder:text-sm outline-none border-2 border-[#DADDDD] cursor-pointer`}
+                    />
+                    <Image
+                      src="/icons/search.svg"
+                      alt="Search"
+                      width={18}
+                      height={18}
+                      className="absolute w-4 h-4 top-[0.75rem] left-3"
+                    />
+                  </motion.div>
+                </motion.button>
+              )}
+            </AnimatePresence>
+            {!toggleSearch && (
+              <button
+                className={`cursor-pointer ${
+                  toggleSearch
+                    ? "fixed inset-0 z-10 flex flex-1 bg-opacity-25 backdrop-brightness-50"
+                    : "relative md:flex-1"
                 }`}
-                onClick={() => {
-                  if (width <= 768) {
-                    setToggleSearch(true);
-                  } else {
-                    setToggleSearch(false);
-                  }
-                }}
+                id="wrapper"
+                onClick={(e) => handleClose(e)}
               >
-                <input
-                  type="text"
-                  name="search"
-                  id="search"
-                  placeholder="Search..."
+                <motion.div
+                  initial={initial}
+                  animate={animate}
                   className={`${
-                    toggleSearch ? "w-full" : "w-5"
-                  } md:w-full pl-9 text-sm text-gray-400 rounded-full h-10 placeholder:text-sm outline-none border-2 border-[#DADDDD] cursor-pointer`}
-                />
+                    toggleSearch ? "w-[80%] mx-auto relative mt-3" : ""
+                  }`}
+                  onClick={() => {
+                    if (width <= 768) {
+                      setToggleSearch(true);
+                    } else {
+                      setToggleSearch(false);
+                    }
+                  }}
+                >
+                  <input
+                    type="text"
+                    name="search"
+                    id="search"
+                    placeholder="Search..."
+                    className={`${
+                      toggleSearch ? "w-full" : "w-5"
+                    } md:w-full pl-9 text-sm text-gray-400 rounded-full h-10 placeholder:text-sm outline-none border-2 border-[#DADDDD] cursor-pointer`}
+                  />
+                  <Image
+                    src="/icons/search.svg"
+                    alt="Search"
+                    width={18}
+                    height={18}
+                    className="absolute w-4 h-4 top-[0.75rem] left-3"
+                  />
+                </motion.div>
+              </button>
+            )}
 
-                <Image
-                  src="/icons/search.svg"
-                  alt="Search"
-                  width={18}
-                  height={18}
-                  className="absolute w-4 h-4 top-[0.75rem] left-3"
-                />
-              </div>
-            </button>
             <button className="flex items-center gap-1">
               <Image
                 src="/icons/calendar.svg"
