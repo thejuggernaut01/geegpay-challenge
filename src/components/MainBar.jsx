@@ -11,8 +11,6 @@ import {
 } from "./icons";
 
 const MainBar = () => {
-  const [openModal, setOpenModal] = useState(false);
-
   return (
     <>
       <section className="w-[95%] mx-auto mt-5">
@@ -95,8 +93,6 @@ const MainBar = () => {
           </div>
         </div>
       </section>
-
-      <Modal openModal={openModal} setOpenModal={setOpenModal} />
     </>
   );
 };

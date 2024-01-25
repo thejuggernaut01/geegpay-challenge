@@ -10,13 +10,14 @@ export default function Home() {
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);
   };
+
   return (
     <main className="bg-background dark:bg-black">
-      <section className="flex h-screen">
+      <section className="relative flex h-screen">
         <aside
           className={`w-[15%] md:w-[8%] lg:w-[9%] xl:w-[6%] h-screen border-r-2 border-gray-300 ${
-            isSidebarOpen ? "" : "hidden"
-          } md:block relative`}
+            isSidebarOpen ? "absolute bg-white" : "hidden"
+          } md:block`}
         >
           <SideBar toggleSidebar={toggleSidebar} />
         </aside>
@@ -24,13 +25,14 @@ export default function Home() {
         <article className="flex-1">
           <TopNavigation />
           <button
-            className={`block md:hidden absolute top-[50%] left-0 p-2 bg-gray-800 rounded-lg text-white transition-transform transform ${
+            className={`block md:hidden absolute top-[50%] left-1 p-2 bg-gray-800 rounded-lg text-white transition-transform transform ${
               isSidebarOpen ? "translate-x-[240%]" : "translate-x-0"
             }`}
             onClick={toggleSidebar}
           >
             {!isSidebarOpen ? ">" : "<"}
           </button>
+
           <MainBar />
         </article>
       </section>

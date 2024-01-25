@@ -76,7 +76,7 @@ const TopNavigation = () => {
                   placeholder="Search..."
                   className={`${
                     toggleSearch ? "w-full" : "w-5"
-                  } md:w-full pl-9 text-sm text-gray-400 bg-white rounded-full h-10 placeholder:text-sm outline-none border-2 border-[#DADDDD] cursor-pointer`}
+                  } md:w-full pl-9 text-sm text-gray-400 rounded-full h-10 placeholder:text-sm outline-none border-2 border-[#DADDDD] cursor-pointer`}
                 />
 
                 <Image
