@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Modal from "./ModalComponent";
 import { Barchart } from "./BarChart";
 import {
   ArrowDownIcon,
@@ -14,14 +13,14 @@ const MainBar = () => {
   return (
     <>
       <section className="w-[95%] mx-auto mt-5">
-        <div className="grid xl:grid-cols-3 gap-5">
+        <div className="grid gap-5 xl:grid-cols-3">
           <div className="bg-white col-span-2 h-[350px] rounded-lg">
-            <div className="flex justify-between items-center p-6">
+            <div className="flex items-center justify-between p-6">
               <div className="text-xl font-semibold">Sales Trends</div>
-              <div className="flex justify-between items-center">
+              <div className="flex items-center justify-between">
                 <div className="font-semibold text-gray-500">Sort by:</div>
-                <div className="border-1 border-gray-400">
-                  <button className="w-full ronded-full py-2 px-8 ">
+                <div className="border-gray-400 border-1">
+                  <button className="w-full px-8 py-2 ronded-full ">
                     <ArrowDownIcon />
                   </button>
                 </div>
@@ -33,7 +32,7 @@ const MainBar = () => {
             <div className="grid grid-cols-2 gap-5 ">
               <div className="space-y-5 ">
                 <div className=" bg-white h-[166px] rounded-lg p-4">
-                  <div className="flex  justify-between">
+                  <div className="flex justify-between">
                     <div>
                       <TotalOrderIcon />
                     </div>
