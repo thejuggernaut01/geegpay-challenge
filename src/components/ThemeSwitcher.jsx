@@ -16,11 +16,11 @@ export function ThemeSwitcher() {
   if (!mounted) return null;
 
   return (
-    <div className="bg-white space-y-5 rounded-full py-3 lg:px-2 md:px-1">
+    <div className="bg-white space-y-5 rounded-full px-2 py-3 lg:px-2 md:px-1">
       <div
         className={`bg-${
           theme === "light" && !isActive ? "primary" : "secondary"
-        } lg:p-2 md:py-2 rounded-full flex justify-center`}
+        } py-2 lg:p-2  rounded-full flex justify-center`}
         onClick={() => {
           setTheme("light");
           setIsActive(false);
