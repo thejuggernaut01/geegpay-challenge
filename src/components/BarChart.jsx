@@ -79,7 +79,7 @@ export const Barchart = () => {
         width={500}
         height={400}
         data={data}
-        margin={{ right: 30, top: 30, bottom: 50, left: 10 }}
+        margin={{ right: 30, top: 30, bottom: 80, left: 10 }}
       >
         <YAxis />
         <XAxis dataKey="name" />
@@ -91,12 +91,6 @@ export const Barchart = () => {
           stroke="#8884d8"
           fill="#8384d8"
           dataKey={"revenue"}
-        />
-        <Bar
-          type="monotone"
-          stroke="#7c3aed"
-          fill="#8b5cf6"
-          dataKey={"profit"}
         />
       </BarChart>
     </ResponsiveContainer>
