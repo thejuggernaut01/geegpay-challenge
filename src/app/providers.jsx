@@ -8,7 +8,7 @@ export function Providers({ children }) {
     <NextUIProvider>
       <NextThemeProvider
         attribute="class"
-        defaultTheme="dark"
+        defaultTheme="light"
         themes={["light", "dark"]}
       >
         {children}

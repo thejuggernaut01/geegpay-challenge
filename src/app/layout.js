@@ -14,8 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={jakarta.className}>
-        {/* <Providers> </Providers> */}
-        {children}
+        <Providers attribute="class">{children}</Providers>
       </body>
     </html>
   );

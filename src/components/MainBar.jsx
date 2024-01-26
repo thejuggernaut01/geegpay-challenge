@@ -1,9 +1,8 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Barchart } from "./BarChart";
 import {
-  ArrowDownIcon,
   GreenChartIcon,
   RedChartIcon,
   ShoppingCartIcon,
@@ -15,6 +14,7 @@ import {
 } from "./icons";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Dropdown from "./Dropdown";
 
 const MainBar = () => {
   //aos useEffect hook
@@ -26,25 +26,32 @@ const MainBar = () => {
       anchorPlacement: "top-bottom",
     });
   }, []);
+
+  const [selectedOption, setSelectedOption] = useState("");
+
+  const handleSortBy = (selectedOption) => {
+    setSelectedOption(selectedOption);
+  };
+
   return (
     <>
-      <section className="w-[95%] mx-auto mt-5">
+      <section className="bg-background dark:bg-black w-[95%] mx-auto my-5 relative">
         <div className="xl:grid gap-5 xl:grid-cols-3">
           <div
-            className="bg-white col-span-2 h-[350px] rounded-lg"
+            className="bg-white dark:bg-slate-950 col-span-2 h-[350px] rounded-lg"
             data-aos="fade-right"
           >
             <div className="flex items-center justify-between p-6">
-              <div className="text-xl font-semibold">Sales Trends</div>
+              <div className="text-sm md:text-xl font-semibold">
+                Sales Trends
+              </div>
+
               <div className="flex items-center justify-between">
-                <div className="font-semibold text-gray-500 mr-1 lg:mr-3">
+                <div className="text-sm md:text-lg text-gray-500 dark:text-gray-200 mr-1 lg:mr-3">
                   Sort by:
                 </div>
-                <div className="border-1 border-gray-400 rounded-full">
-                  <button className="w-full ronded-full py-1 px-2 flex justify-between items-center">
-                    <h5 className="mr-3 text-gray-500">Weekly</h5>
-                    <ArrowDownIcon />
-                  </button>
+                <div className="z-20">
+                  <Dropdown onSelect={handleSortBy} />
                 </div>
               </div>
             </div>
@@ -54,8 +61,8 @@ const MainBar = () => {
             className="cols-span-1 mt-5 xl:mt-0 space-y-5"
             data-aos="fade-left"
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-5">
-              <div className=" bg-white  rounded-lg p-3 flex flex-col">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-5">
+              <div className=" bg-white dark:bg-slate-950 rounded-lg p-2 flex flex-col">
                 <div>
                   <div className="flex  justify-between items-center">
                     <div>
@@ -75,13 +82,13 @@ const MainBar = () => {
                     </div>
                     <div>23.5%</div>
                   </div>
-                  <div className="flex text-xs text-gray-500 gap-0">
+                  <div className="flex text-xs text-gray-500">
                     <p className="mr-1">vs. </p>
                     <p>previous month</p>
                   </div>
                 </div>
               </div>
-              <div className=" bg-white h-[166px] rounded-lg p-3">
+              <div className=" bg-white dark:bg-slate-950 h-[166px] rounded-lg p-2">
                 <div>
                   <div className="flex justify-between items-center">
                     <div>
@@ -101,15 +108,15 @@ const MainBar = () => {
                     </div>
                     <div>23.5%</div>
                   </div>
-                  <div className="flex text-xs text-gray-500 gap-0">
+                  <div className="flex text-xs text-gray-500">
                     <p className="mr-1">vs. </p>
                     <p>previous month</p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-5">
-              <div className=" bg-white  rounded-lg p-3 flex flex-col">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-5">
+              <div className=" bg-white dark:bg-slate-950  rounded-lg p-2 flex flex-col">
                 <div>
                   <div className="flex  justify-between items-center">
                     <div>
@@ -129,13 +136,13 @@ const MainBar = () => {
                     </div>
                     <div>23.5%</div>
                   </div>
-                  <div className="flex text-xs text-gray-500 gap-0">
+                  <div className="flex text-xs text-gray-500">
                     <p className="mr-1">vs. </p>
                     <p>previous month</p>
                   </div>
                 </div>
               </div>
-              <div className=" bg-white h-[166px] rounded-lg p-3">
+              <div className=" bg-white dark:bg-slate-950 h-[166px] rounded-lg px-10 lg:p-2">
                 <div>
                   <div className="flex justify-between items-center">
                     <div>
@@ -155,7 +162,7 @@ const MainBar = () => {
                     </div>
                     <div>23.5%</div>
                   </div>
-                  <div className="flex text-xs text-gray-500 gap-0">
+                  <div className="flex text-xs text-gray-500">
                     <p className="mr-1">vs. </p>
                     <p>previous month</p>
                   </div>

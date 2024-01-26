@@ -16,11 +16,11 @@ export function ThemeSwitcher() {
   if (!mounted) return null;
 
   return (
-    <div className="bg-white space-y-5 rounded-full px-2 py-3 lg:px-2 md:px-1">
+    <div className="bg-white dark:bg-black space-y-5 rounded-full px-2 py-3 lg:px-2 md:px-1">
       <div
         className={`bg-${
           theme === "light" && !isActive ? "primary" : "secondary"
-        } py-2 lg:p-2  rounded-full flex justify-center`}
+        } p-2 lg:p-3  rounded-full flex justify-center`}
         onClick={() => {
           setTheme("light");
           setIsActive(false);
@@ -32,9 +32,7 @@ export function ThemeSwitcher() {
         </div>
       </div>
       <div
-        className={`bg-${
-          theme === "dark" && isActive ? "primary" : ""
-        } lg:p-1 rounded-full flex justify-center `}
+        className={`lg:p-1 rounded-full flex justify-center `}
         onClick={() => {
           setTheme("dark");
           setIsActive(true);
