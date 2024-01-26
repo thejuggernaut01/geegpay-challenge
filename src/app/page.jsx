@@ -16,10 +16,10 @@ export default function Home() {
       <section className="relative flex h-screen">
         <aside
           className={`w-[15%] md:w-[8%] lg:w-[9%] xl:w-[6%] h-screen border-r-2 border-gray-300 sticky top-0 z-10 ${
-            isSidebarOpen ? " bg-white" : "hidden"
+            isSidebarOpen ? " " : "hidden"
           } md:block`}
         >
-          <SideBar toggleSidebar={toggleSidebar} />
+          <SideBar />
         </aside>
 
         <article className="flex-1 overflow-y-auto">

@@ -38,7 +38,7 @@ const MainBar = () => {
       <section className="bg-background dark:bg-black w-[95%] mx-auto my-5 relative">
         <div className="xl:grid gap-5 xl:grid-cols-3">
           <div
-            className="bg-white dark:bg-slate-950 col-span-2 h-[350px] rounded-lg"
+            className="bg-white dark:bg-slate-950 col-span-2 h-[350px] rounded-lg pb-5"
             data-aos="fade-right"
           >
             <div className="flex items-center justify-between p-6">
@@ -142,7 +142,7 @@ const MainBar = () => {
                   </div>
                 </div>
               </div>
-              <div className=" bg-white dark:bg-slate-950 h-[166px] rounded-lg px-10 lg:p-2">
+              <div className=" bg-white dark:bg-slate-950 h-[166px] rounded-lg p-2">
                 <div>
                   <div className="flex justify-between items-center">
                     <div>

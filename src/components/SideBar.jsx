@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 
 import {
   DashboardBoxIcon,
@@ -17,7 +16,7 @@ import {
 } from "./icons";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 
-const SideBar = ({ toggleSidebar }) => {
+const SideBar = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   const transition = {
@@ -32,7 +31,7 @@ const SideBar = ({ toggleSidebar }) => {
       setIsSmallScreen(window.innerWidth < 320 || window.innerHeight < 568);
     };
 
-    // Initial check on mount
+    //Initial check on mount
     handleResize();
 
     // Add event listener for window resize
@@ -74,9 +73,7 @@ const SideBar = ({ toggleSidebar }) => {
           >
             {icons.map((item, index) => (
               <div className="flex justify-center" key={index}>
-                <Link href={item.path} onClick={toggleSidebar}>
-                  {item.icon}
-                </Link>
+                <Link href={item.path}>{item.icon}</Link>
               </div>
             ))}
             <ThemeSwitcher />
@@ -85,9 +82,7 @@ const SideBar = ({ toggleSidebar }) => {
           <div className="justify-center space-y-4">
             {lastIcons.map((item, index) => (
               <div className="flex justify-center" key={index}>
-                <Link href={item.path} onClick={toggleSidebar}>
-                  {item.icon}
-                </Link>
+                <Link href={item.path}>{item.icon}</Link>
               </div>
             ))}
           </div>

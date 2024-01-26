@@ -24,7 +24,6 @@ const CustomBar = (props) => {
       onMouseOver={() => setHovered(true)}
       onMouseOut={() => setHovered(false)}
     >
-      {/* Define linear gradient */}
       <defs>
         <linearGradient id={gradientId} x1="0%" y1="0%" x2="0%" y2="100%">
           <stop
@@ -41,7 +40,6 @@ const CustomBar = (props) => {
         </linearGradient>
       </defs>
 
-      {/* Draw the curved top */}
       <path
         d={`M${x},${y + radius}A${radius},${radius},0,0,1,${x + width},${
           y + radius
@@ -49,24 +47,12 @@ const CustomBar = (props) => {
         fill={`url(#${gradientId})`}
       />
 
-      {/* Draw the straight bottom */}
       <rect
         x={x}
         y={y + radius}
         width={width}
         height={height - radius}
         fill={`url(#${gradientId})`}
-      />
-
-      {/* Transparent rectangle for hover effect */}
-      <rect
-        x={x}
-        y={y}
-        width={width}
-        height={radius}
-        fill="transparent"
-        // onMouseOver={() => setHovered(true)}
-        // onMouseOut={() => setHovered(false)}
       />
     </g>
   );
@@ -75,7 +61,7 @@ export const Barchart = () => {
   const data = [
     {
       name: "Jan",
-      income: 2300,
+      income: 4900,
     },
     {
       name: "Feb",
@@ -83,45 +69,46 @@ export const Barchart = () => {
     },
     {
       name: "Mar",
-      income: 6489,
+      income: 3489,
     },
     {
       name: "Apr",
-      income: 1639,
+      income: 8639,
     },
     {
       name: "May",
-      income: 3702,
+      income: 5702,
     },
     {
       name: "Jun",
-      income: 4738,
+      income: 10000,
     },
     {
       name: "Jul",
-      income: 4432,
+      income: 5702,
     },
     {
       name: "Aug",
-      income: 4443,
+      income: 7383,
     },
     {
       name: "Sep",
-      income: 9479,
+      income: 8979,
     },
     {
       name: "Oct",
-      income: 4883,
+      income: 3489,
     },
     {
       name: "Nov",
-      income: 2304,
+      income: 9304,
     },
     {
       name: "Dec",
-      income: 4060,
+      income: 8060,
     },
   ];
+
   return (
     <ResponsiveContainer width={"100%"} height={"100%"}>
       <BarChart
