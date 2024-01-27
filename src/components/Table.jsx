@@ -43,7 +43,12 @@ const ORDERS = [
 
 const Table = () => {
   const [openInvoice, setOpenInvoice] = useState(false);
+  const [selectedOrder, setSelectedOrder] = useState(null);
 
+  const handleViewClick = (order) => {
+    setSelectedOrder(order);
+    setOpenInvoice(true);
+  };
   return (
     <div className="overflow-x-auto">
       <table className="table-auto sm:min-w-full">
@@ -60,7 +65,7 @@ const Table = () => {
           {ORDERS.map((order, index) => (
             <tr
               key={index}
-              className="border-b border-gray-300 text-sm md:text-base"
+              className="border-b border-gray-300 text-sm md:text-base "
             >
               <td className="py-3 pr-5 whitespace-nowrap flex items-center space-x-3">
                 <Image
@@ -85,7 +90,7 @@ const Table = () => {
               <td className="py-3 pr-5 whitespace-nowrap">
                 <button
                   className="flex items-center space-x-1"
-                  onClick={() => setOpenInvoice(true)}
+                  onClick={() => handleViewClick(order)}
                 >
                   <InvoiceIcon />
                   <p>view</p>
@@ -95,7 +100,15 @@ const Table = () => {
           ))}
         </tbody>
       </table>
-      {/* {openInvoice && <Invoice />} */}
+      {openInvoice && (
+        <Invoice
+          order={selectedOrder}
+          onClose={() => {
+            setSelectedOrder(null);
+            setOpenInvoice(false);
+          }}
+        />
+      )}
     </div>
   );
 };
