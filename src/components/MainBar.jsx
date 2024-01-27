@@ -15,6 +15,7 @@ import {
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Dropdown from "./Dropdown";
+import { ChartjsBar } from "./ChartjsBar";
 
 const MainBar = () => {
   //aos useEffect hook
@@ -55,7 +56,8 @@ const MainBar = () => {
                 </div>
               </div>
             </div>
-            <Barchart />
+            {/* <Barchart /> */}
+            <ChartjsBar />
           </div>
           <div
             className="cols-span-1 mt-5 xl:mt-0 space-y-5"

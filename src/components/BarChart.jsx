@@ -10,6 +10,7 @@ import {
   Tooltip,
   BarChart,
   Bar,
+  Line,
 } from "recharts";
 
 const CustomBar = (props) => {
@@ -122,6 +123,8 @@ export const Barchart = () => {
         <CartesianGrid strokeDasharray={"5 5"} vertical={false} />
         <Legend />
         <Tooltip />
+        <Line type="monotone" dataKey="uv" stroke="#ff7300" yAxisId={0} />
+        <Line type="monotone" dataKey="pv" stroke="#387908" yAxisId={1} />
         <Bar
           type="monotone"
           stroke="#8884d8"
