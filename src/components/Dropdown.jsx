@@ -34,7 +34,7 @@ const Dropdown = ({ onSelect }) => {
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="inline-flex justify-between items-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white dark:bg-slate-950 dark:text-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          className="inline-flex justify-between items-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white dark:bg-slate-950 dark:text-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none"
         >
           {selectedOption} <ArrowDownIcon />
         </button>

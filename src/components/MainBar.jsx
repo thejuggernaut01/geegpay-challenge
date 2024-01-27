@@ -224,6 +224,7 @@ const MainBar = () => {
         <section className="lg:flex lg:w-[95%] mx-auto gap-5 space-y-5">
           <article className={`w-[95%] mx-auto lg:flex-1`}>
             <motion.div
+              data-aos="fade-up"
               className={`border dark:border-slate-950 rounded-lg bg-white dark:bg-slate-950 mt-5 w-full`}
             >
               <div className="w-[95%] mx-auto space-y-3 mt-5 ">
@@ -251,7 +252,10 @@ const MainBar = () => {
             </motion.div>
           </article>
 
-          <article className="w-[95%] lg:w-[32%] mx-auto border dark:border-slate-950 rounded-lg bg-white dark:bg-slate-950 my-5">
+          <article
+            data-aos="fade-up"
+            className="w-[95%] lg:w-[32%] mx-auto border dark:border-slate-950 rounded-lg bg-white dark:bg-slate-950 my-5"
+          >
             <div className="w-[95%] mx-auto space-y-3 mt-5 ">
               <div className="flex items-center justify-between">
                 <h2 className="font-semibold">Top Platform</h2>

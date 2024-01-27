@@ -1,6 +1,8 @@
+<<<<<<< HEAD
 import React from "react";
+=======
+>>>>>>> 7212dc52e50ab779aada58acef1e1bdd7afff11c
 import Image from "next/image";
-import { InvoiceIcon } from "./icons";
 
 const Invoice = ({ order, onClose }) => {
   return (
