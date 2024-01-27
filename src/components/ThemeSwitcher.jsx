@@ -27,9 +27,9 @@ export function ThemeSwitcher() {
         }}
       >
         {" "}
-        <div className="cursor-pointer" onClick={() => setTheme("light")}>
+        <button className="cursor-pointer" onClick={() => setTheme("light")}>
           <LightModeIcon />
-        </div>
+        </button>
       </div>
       <div
         className={`lg:p-1 rounded-full flex justify-center `}
@@ -39,9 +39,9 @@ export function ThemeSwitcher() {
         }}
       >
         {" "}
-        <div className="cursor-pointer" onClick={() => setTheme("dark")}>
+        <button className="cursor-pointer" onClick={() => setTheme("dark")}>
           <DarkModeIcon />
-        </div>
+        </button>
       </div>
     </div>
   );

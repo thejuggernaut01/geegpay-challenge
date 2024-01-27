@@ -13,9 +13,9 @@ export default function Home() {
 
   return (
     <main className="bg-background dark:bg-black">
-      <section className="relative flex h-screen">
+      <section className="relative flex">
         <aside
-          className={`w-[15%] md:w-[8%] lg:w-[9%] xl:w-[6%] h-screen border-r-2 border-gray-300 sticky top-0 z-10 ${
+          className={`w-[15%] md:w-[8%] lg:w-[9%] xl:w-[6%] h-screen border-r-2 border-gray-300 dark:border-slate-950 sticky top-0 z-10 ${
             isSidebarOpen ? " " : "hidden"
           } md:block`}
         >

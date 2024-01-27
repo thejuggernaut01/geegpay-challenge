@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
+import { ArrowDownIcon, CalenderIcon, NotificationIcon } from "./icons";
 
 const currentDate = new Date();
 
@@ -50,7 +51,7 @@ const TopNavigation = () => {
   }, [width]);
 
   return (
-    <header className="flex items-center h-16 border-b-2 border-gray-300">
+    <header className="flex items-center h-16 border-b-2 border-gray-300 dark:border-slate-950">
       <nav className="w-[95%] mx-auto flex items-center justify-between gap-x-5">
         <h1 className="text-lg xl:text-xl font-bold flex-0 w-[20%]">
           Dashboard
@@ -149,29 +150,17 @@ const TopNavigation = () => {
               </button>
             )}
 
-            <button className="flex items-center gap-1">
-              <Image
-                src="/icons/calendar.svg"
-                alt="Calendar"
-                width={22}
-                height={22}
-                className="w-7 h-7"
-                title={formattedDate}
-              />
-              <p className="hidden text-sm font-medium xl:text-base lg:block">
+            <button className="hidden md:flex items-center gap-1">
+              <CalenderIcon />
+              <p className="hidden text-sm md:text-xs lg:text-sm font-medium xl:text-base md:block">
                 {formattedDate}
               </p>
             </button>
           </div>
 
           <div className="flex items-center justify-end xxs:gap-x-2 sm:gap-x-5">
-            <button className="p-2 border border-gray-500 rounded-full">
-              <Image
-                src="/icons/notification.svg"
-                alt="Notification bell"
-                width={19}
-                height={19}
-              />
+            <button className="">
+              <NotificationIcon />
             </button>
 
             <button
@@ -186,19 +175,12 @@ const TopNavigation = () => {
                   className="absolute object-cover rounded-full"
                 />
               </div>
-
               <div className="hidden sm:text-sm xxs:text-xs md:block">
                 <p>Justin Bergson</p>
                 <p>Justin@gmail.com</p>
               </div>
 
-              <Image
-                src="/icons/arrow-down.svg"
-                alt="Arrow Down"
-                width={18}
-                height={18}
-                className="hidden md:block"
-              />
+              <ArrowDownIcon />
             </button>
           </div>
         </aside>
