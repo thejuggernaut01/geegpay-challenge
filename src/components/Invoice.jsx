@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 import React from "react";
-=======
->>>>>>> 7212dc52e50ab779aada58acef1e1bdd7afff11c
 import Image from "next/image";
 
 const Invoice = ({ order, onClose }) => {

@@ -15,6 +15,7 @@ import {
 
 const CustomBar = (props) => {
   const { x, y, width, height } = props;
+  const topRadius = 10;
 
   const radius = 10;
   const [isHovered, setHovered] = useState(false);
@@ -42,9 +43,9 @@ const CustomBar = (props) => {
       </defs>
 
       <path
-        d={`M${x},${y + radius}A${radius},${radius},0,0,1,${x + width},${
-          y + radius
-        }`}
+        d={`M${x},${y + topRadius}A${topRadius},${topRadius},0,0,1,${
+          x + width
+        },${y + topRadius}`}
         fill={`url(#${gradientId})`}
       />
 

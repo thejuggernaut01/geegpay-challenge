@@ -283,9 +283,9 @@ const MainBar = () => {
                       <label className="font-semibold" htmlFor={platform.label}>
                         {platform.label}
                       </label>
-                      <div className="w-full h-5 border rounded-2xl bg-white relative">
+                      <div className="w-full h-2 border rounded-2xl bg-white relative">
                         <div
-                          className={`h-5 ${platform.width} ${platform.color} rounded-2xl absolute -top-[1px] -left-[1px] border ${platform.borderColor}`}
+                          className={`h-2 ${platform.width} ${platform.color} rounded-2xl absolute -top-[1px] -left-[1px] border ${platform.borderColor}`}
                         ></div>
                       </div>
                       <div className="flex items-center justify-between text-gray-500">
