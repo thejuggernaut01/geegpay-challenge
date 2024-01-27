@@ -17,33 +17,38 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Dropdown from "./Dropdown";
 import Table from "./Table";
+import classes from "@/components/scroll.module.css";
 
 const TOP_PLATFORM = [
   {
     label: "Book Bazaar",
-    color: "#6160DC",
-    width: "50%",
+    color: "bg-purple-300",
+    borderColor: "border-purple-300",
+    width: "w-[50%]",
     value: "$2,500,000",
     percentage: "+15%",
   },
   {
     label: "Artisan Aisle",
-    color: "#54C5EB",
-    width: "40%",
+    color: "bg-blue-200",
+    borderColor: "border-blue-200",
+    width: "w-[40%]",
     value: "$1,800,000",
     percentage: "+10%",
   },
   {
     label: "Toy Troop",
-    color: "#FFB74A",
-    width: "25%",
+    color: "bg-orange-300",
+    borderColor: "border-orange-300",
+    width: "w-[25%]",
     value: "$1,200,000",
     percentage: "+8%",
   },
   {
     label: "XStore",
-    color: "#FF4A55",
-    width: "25%",
+    color: "bg-red-300",
+    borderColor: "border-red-300",
+    width: "w-[25%]",
     value: "$1,200,000",
     percentage: "+8%",
   },
@@ -267,7 +272,7 @@ const MainBar = () => {
                 )}
               </div>
 
-              <div className="overflow-y-auto h-[270px]">
+              <div className={`overflow-y-auto h-[270px] ${classes.scroll}`}>
                 <div className="space-y-5">
                   {TOP_PLATFORM.map((platform) => (
                     <div className="space-y-4" key={platform.label}>
@@ -276,7 +281,7 @@ const MainBar = () => {
                       </label>
                       <div className="w-full h-5 border rounded-2xl bg-white relative">
                         <div
-                          className={`h-5 w-[${platform.width}] bg-[${platform.color}] rounded-2xl absolute -top-[1px] -left-[1px] border border-[${platform.color}]`}
+                          className={`h-5 ${platform.width} ${platform.color} rounded-2xl absolute -top-[1px] -left-[1px] border ${platform.borderColor}`}
                         ></div>
                       </div>
                       <div className="flex items-center justify-between text-gray-500">
