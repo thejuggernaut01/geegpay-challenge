@@ -220,83 +220,217 @@ const MainBar = () => {
           </div>
         </section>
 
-        {/* Last Orders */}
-        <section className="lg:flex lg:w-[95%] mx-auto gap-5 space-y-5">
-          <article className={`w-[95%] mx-auto lg:flex-1`}>
-            <motion.div
-              data-aos="fade-up"
-              className={`border dark:border-slate-950 rounded-lg bg-white dark:bg-slate-950 mt-5 w-full`}
-            >
-              <div className="w-[95%] mx-auto space-y-3 mt-5 ">
-                <div className="flex items-center justify-between">
-                  <h2 className="font-semibold">Last Orders</h2>
-                  {openOrders ? (
+{/* Last Orders */}
+        <section className="lg:flex lg:w-[95%] mx-auto gap-5 ">
+          <article
+            className={`mx-auto lg:flex-1 w-[95%] ${
+              openOrders
+                ? "w-full fixed inset-0 z-10 flex items-end justify-end bg-opacity-25 backdrop-brightness-50 md:items-center md:justify-center"
+                : "md:unset"
+            }`}
+          >
+            {!openOrders && (
+              <motion.div
+                className={`border dark:border-slate-950 rounded-lg bg-white dark:bg-slate-950 mt-5  ${
+                  openOrders
+                    ? "w-full md:w-[75%] lg:w-[65%] xl:w-[50%]"
+                    : "lg:w-full md:w-[95%] mx-auto"
+                }`}
+              >
+                <div className="w-[95%] mx-auto space-y-3 mt-5 ">
+                  <div className="flex items-center justify-between">
+                    <h2 className="font-semibold">Last Orders</h2>
+                    {openOrders ? (
+                      <button
+                        onClick={() => setOpenOrders(false)}
+                        className="text-danger"
+                      >
+                        Close
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => setOpenOrders(true)}
+                        className="text-primary"
+                      >
+                        See All
+                      </button>
+                    )}
+                  </div>
+
+                  <Table />
+                </div>
+              </motion.div>
+            )}
+
+            <AnimatePresence>
+              {openOrders && (
+                <motion.div
+                  className={`border dark:border-slate-950 rounded-lg bg-white dark:bg-slate-950 mt-5  ${
+                    openOrders
+                      ? "w-full md:w-[75%] lg:w-[65%] xl:w-[50%]"
+                      : "lg:w-full md:w-[95%] mx-auto"
+                  }`}
+                  initial={{ y: "110%" }}
+                  animate={{ y: "0%" }}
+                  transition={transition}
+                  exit={{ y: "110%" }}
+                >
+                  <div className="w-[95%] mx-auto space-y-3 mt-5 ">
+                    <div className="flex items-center justify-between">
+                      <h2 className="font-semibold">Last Orders</h2>
+                      {openOrders ? (
+                        <button
+                          onClick={() => setOpenOrders(false)}
+                          className="text-danger"
+                        >
+                          Close
+                        </button>
+                      ) : (
+                        <button
+                          onClick={() => setOpenOrders(true)}
+                          className="text-primary"
+                        >
+                          See All
+                        </button>
+                      )}
+                    </div>
+
+                    <Table />
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </article>
+
+          {/* Top Platform */}
+          <article
+            className={`${
+              openTopPlatform
+                ? "w-full fixed inset-0 z-10 flex items-end justify-end bg-opacity-25 backdrop-brightness-50 md:items-center md:justify-center"
+                : "w-[95%] lg:w-[32%] mx-auto border dark:border-slate-950 rounded-lg bg-white dark:bg-slate-950 my-5"
+            }`}
+          >
+            {!openTopPlatform && (
+              <motion.div
+                className={`dark:border-slate-950 dark:bg-slate-950 mt-5 w-[95%] mx-auto ${
+                  openTopPlatform
+                    ? "w-full md:w-[75%] lg:w-[65%] xl:w-[50%] px-5 border rounded-lg bg-white"
+                    : "md:w-[95%] mx-auto"
+                }`}
+              >
+                <div className="flex items-center justify-between mt-5 mb-3">
+                  <h2 className="font-semibold">Top Platform</h2>
+                  {openTopPlatform ? (
                     <button
-                      onClick={() => setOpenOrders(false)}
+                      onClick={() => setOpenTopPlatform(false)}
                       className="text-danger"
                     >
                       Close
                     </button>
                   ) : (
                     <button
-                      onClick={() => setOpenOrders(true)}
+                      onClick={() => setOpenTopPlatform(true)}
                       className="text-primary"
                     >
                       See All
                     </button>
                   )}
                 </div>
-
-                <Table />
-              </div>
-            </motion.div>
-          </article>
-
-          <article
-            data-aos="fade-up"
-            className="w-[95%] lg:w-[32%] mx-auto border dark:border-slate-950 rounded-lg bg-white dark:bg-slate-950 my-5"
-          >
-            <div className="w-[95%] mx-auto space-y-3 mt-5 ">
-              <div className="flex items-center justify-between">
-                <h2 className="font-semibold">Top Platform</h2>
-                {openTopPlatform ? (
-                  <button
-                    onClick={() => setOpenTopPlatform(false)}
-                    className="text-danger"
-                  >
-                    Close
-                  </button>
-                ) : (
-                  <button
-                    onClick={() => setOpenTopPlatform(true)}
-                    className="text-primary"
-                  >
-                    See All
-                  </button>
-                )}
-              </div>
-
-              <div className={`overflow-y-auto h-[270px] ${classes.scroll}`}>
-                <div className="space-y-5">
-                  {TOP_PLATFORM.map((platform) => (
-                    <div className="space-y-4" key={platform.label}>
-                      <label className="font-semibold" htmlFor={platform.label}>
-                        {platform.label}
-                      </label>
-                      <div className="w-full h-2 border rounded-2xl bg-white relative">
-                        <div
-                          className={`h-2 ${platform.width} ${platform.color} rounded-2xl absolute -top-[1px] -left-[1px] border ${platform.borderColor}`}
-                        ></div>
+                <div
+                  className={`${
+                    openTopPlatform
+                      ? "overflow-y-hidden mb-5"
+                      : "overflow-y-auto h-[270px]"
+                  } ${classes.scroll}`}
+                >
+                  <div className="space-y-2">
+                    {TOP_PLATFORM.map((platform) => (
+                      <div className="space-y-2" key={platform.label}>
+                        <label
+                          className="font-semibold"
+                          htmlFor={platform.label}
+                        >
+                          {platform.label}
+                        </label>
+                        <div className="w-full h-2 border rounded-2xl bg-white relative">
+                          <div
+                            className={`h-2 ${platform.width} ${platform.color} rounded-2xl absolute -top-[1px] -left-[1px] border ${platform.borderColor}`}
+                          ></div>
+                        </div>
+                        <div className="flex items-center justify-between text-gray-500">
+                          <p>{platform.value}</p>
+                          <p>{platform.percentage}</p>
+                        </div>
                       </div>
-                      <div className="flex items-center justify-between text-gray-500">
-                        <p>{platform.value}</p>
-                        <p>{platform.percentage}</p>
-                      </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            )}
+
+            <AnimatePresence>
+              {openTopPlatform && (
+                <motion.div
+                  className={`dark:border-slate-950 dark:bg-slate-950 mt-5 w-[95%] mx-auto ${
+                    openTopPlatform
+                      ? "w-full md:w-[75%] lg:w-[65%] xl:w-[50%] px-5 border rounded-lg bg-white"
+                      : "md:w-[95%] mx-auto"
+                  }`}
+                  initial={{ y: "110%" }}
+                  animate={{ y: "0%" }}
+                  transition={transition}
+                  exit={{ y: "110%" }}
+                >
+                  <div className="flex items-center justify-between mt-5 mb-3">
+                    <h2 className="font-semibold">Top Platform</h2>
+                    {openTopPlatform ? (
+                      <button
+                        onClick={() => setOpenTopPlatform(false)}
+                        className="text-danger"
+                      >
+                        Close
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => setOpenTopPlatform(true)}
+                        className="text-primary"
+                      >
+                        See All
+                      </button>
+                    )}
+                  </div>
+                  <div
+                    className={`${
+                      openTopPlatform
+                        ? "overflow-y-hidden mb-5"
+                        : "overflow-y-auto h-[270px]"
+                    } ${classes.scroll}`}
+                  >
+                    <div className="space-y-2">
+                      {TOP_PLATFORM.map((platform) => (
+                        <div className="space-y-2" key={platform.label}>
+                          <label
+                            className="font-semibold"
+                            htmlFor={platform.label}
+                          >
+                            {platform.label}
+                          </label>
+                          <div className="w-full h-2 border rounded-2xl bg-white relative">
+                            <div
+                              className={`h-2 ${platform.width} ${platform.color} rounded-2xl absolute -top-[1px] -left-[1px] border ${platform.borderColor}`}
+                            ></div>
+                          </div>
+                          <div className="flex items-center justify-between text-gray-500">
+                            <p>{platform.value}</p>
+                            <p>{platform.percentage}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </article>
         </section>
       </main>
@@ -305,3 +439,4 @@ const MainBar = () => {
 };
 
 export default MainBar;
+
